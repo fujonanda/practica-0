@@ -16,6 +16,10 @@ public class KarlaCalificaYReprueba{
 
         float promedio = calcularPromedio(calificaciones, calificaciones.length);
         int aprobado = estaAprobado(promedio);
+
+        mostrarResultado(nombre, promedio, aprobado);
+        
+        scanner.close();
     }
 
     private static String leerNombre(Scanner scanner) {
@@ -89,4 +93,13 @@ public class KarlaCalificaYReprueba{
         }
     }
 
+    public static void mostrarResultado(String nombre, float promedio, int aprobado) {
+        System.out.println("\n--- Resumen Académico ---");
+        System.out.println("Nombre:   " + nombre);
+        System.out.printf("Promedio: %.2f\n", promedio);
+        
+        String estado = (aprobado == 1) ? "APROBADO" : "REPROBADO";
+        System.out.println("Estado:   " + estado);
+    }
+    
 }
