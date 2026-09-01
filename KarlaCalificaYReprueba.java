@@ -13,6 +13,8 @@ public class KarlaCalificaYReprueba{
         calificaciones[0] = leerCalificacion(scanner, "primer parcial");
         calificaciones[1] = leerCalificacion(scanner, "segundo parcial");
         calificaciones[2] = leerCalificacion(scanner, "tercer parcial");
+
+        float promedio = calcularPromedio(calificaciones, calificaciones.length);
     }
 
     private static String leerNombre(Scanner scanner) {
@@ -61,6 +63,17 @@ public class KarlaCalificaYReprueba{
             }
         }
         return calificacion;
+    }
+
+    /*Originalmente lo pensamos como double, pero la función que se exigía en la práctica
+    nos pedía float. Por ende, nuestra elección de float */
+
+    public static float calcularPromedio(float[] calificaciones, int cantidad) {
+        float suma = 0;
+        for (int i = 0; i < cantidad; i++) {
+            suma += calificaciones[i];
+        }
+        return suma / cantidad;
     }
 
 }
