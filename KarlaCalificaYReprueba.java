@@ -15,6 +15,7 @@ public class KarlaCalificaYReprueba{
         calificaciones[2] = leerCalificacion(scanner, "tercer parcial");
 
         float promedio = calcularPromedio(calificaciones, calificaciones.length);
+        int aprobado = estaAprobado(promedio);
     }
 
     private static String leerNombre(Scanner scanner) {
@@ -74,6 +75,18 @@ public class KarlaCalificaYReprueba{
             suma += calificaciones[i];
         }
         return suma / cantidad;
+    }
+
+    /* Este es un punto extraño. Como tal, las funciones que estaban en la práctica estaban 
+    exclusivamente enfocadas a que fuera en C. En Java tenemos la opción de utilizar boolean.
+    Como nos dio pena mandar comentario, dejamos este método como int para apegarnos medianamente 
+    a los requisitos originales */
+    public static int estaAprobado(float promedio) {
+        if (promedio >= 6.0f) {
+            return 1;
+        } else {
+            return 0;
+        }
     }
 
 }
